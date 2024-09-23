@@ -6,7 +6,7 @@ import {
 } from './commons/constants';
 
 const childValidator = (array) => {
-  return array.every(item => Array.isArray(item));
+  return array.every((item) => Array.isArray(item));
 };
 
 export default (config) => {

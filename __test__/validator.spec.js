@@ -17,7 +17,7 @@ const errorObjectDescription = expect.objectContaining({
   error: expect.any(String),
 });
 
-console.error = jest.genMockFn();
+console.error = jest.fn();
 
 describe('Validator', () => {
   it('Should ensure that being called with correct config', () => {
