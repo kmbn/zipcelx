@@ -9,8 +9,8 @@
     "test": "jest",
     "test:dev": "jest --watch",
     "lint": "eslint . ./",
-    "ci": "yarn run test && yarn run lint",
-    "build": "yarn run ci && rimraf lib/* && rollup -c"
+    "ci": "npm run test && npm run lint",
+    "build": "npm run ci && rimraf lib/* && rollup -c"
   },
   "jest": {
     "verbose": true,
