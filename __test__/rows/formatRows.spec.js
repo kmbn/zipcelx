@@ -1,5 +1,5 @@
-import formatRow from '../../../src/formatters/rows/formatRow';
-import baseConfig from '../../baseConfig';
+import { formatRow } from '../../src/rows';
+import baseConfig from '../baseConfig';
 
 const expectedXML = '<row r="1"><c r="A1" t="inlineStr"><is><t>Test</t></is></c><c r="B1"><v>1000</v></c></row>';
 

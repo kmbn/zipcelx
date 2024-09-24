@@ -1,6 +1,6 @@
-import { WARNING_INVALID_TYPE } from '../../../src/commons/constants';
-import formatCell from '../../../src/formatters/cells/formatCell';
-import baseConfig from '../../baseConfig';
+import { WARNING_INVALID_TYPE } from '../../src/cells';
+import { formatCell } from '../../src/cells';
+import baseConfig from '../baseConfig';
 
 const cells = baseConfig.sheet.data[0];
 

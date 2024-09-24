@@ -1,4 +1,4 @@
-import generatorNumberCell from '../../../src/formatters/cells/generatorNumberCell';
+import { generatorNumberCell } from '../../src/cells';
 
 export const expectedXML = '<c r="A1"><v>1000</v></c>';
 

@@ -2,7 +2,7 @@ import JSZip from 'jszip';
 import FileSaver from 'file-saver';
 
 import validator from './validator';
-import generatorRows from './formatters/rows/generatorRows';
+import { generatorRows } from './rows';
 
 import workbookXML from './statics/workbook.xml';
 import workbookXMLRels from './statics/workbook.xml.rels';

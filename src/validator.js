@@ -1,9 +1,10 @@
-import {
-  MISSING_KEY_FILENAME,
-  INVALID_TYPE_FILENAME,
-  INVALID_TYPE_SHEET,
-  INVALID_TYPE_SHEET_DATA
-} from './commons/constants';
+export const MISSING_KEY_FILENAME = 'Zipclex config missing property filename';
+
+export const INVALID_TYPE_FILENAME = 'Zipclex filename can only be of type string';
+
+export const INVALID_TYPE_SHEET = 'Zipcelx sheet data is not of type array';
+
+export const INVALID_TYPE_SHEET_DATA = 'Zipclex sheet data childs is not of type array';
 
 const childValidator = (array) => {
   return array.every((item) => Array.isArray(item));

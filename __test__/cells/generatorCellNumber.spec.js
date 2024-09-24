@@ -1,4 +1,4 @@
-import generatorCellNumber from '../../src/commons/generatorCellNumber';
+import { generatorCellNumber}  from '../../src/cells';
 
 describe('Cell number generator', () => {
   it('should create cell number A1', () => {

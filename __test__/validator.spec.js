@@ -1,10 +1,9 @@
 import validator from '../src/validator';
 import {
   MISSING_KEY_FILENAME,
-  INVALID_TYPE_FILENAME,
   INVALID_TYPE_SHEET,
   INVALID_TYPE_SHEET_DATA
-} from '../src/commons/constants';
+} from '../src/validator';
 import baseConfig from './baseConfig';
 
 const configDescription = expect.objectContaining({

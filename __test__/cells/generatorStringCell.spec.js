@@ -1,4 +1,4 @@
-import generatorStringCell from '../../../src/formatters/cells/generatorStringCell';
+import { generatorStringCell } from '../../src/cells';
 
 const expectedXML = '<c r="A1" t="inlineStr"><is><t>Test</t></is></c>';
 

@@ -1,4 +1,4 @@
-import generatorRows from '../src/formatters/rows/generatorRows';
+import { generatorRows } from '../src/rows';
 import zipcelx, { generateXMLWorksheet } from '../src/zipcelx';
 import baseConfig from './baseConfig';
 
