@@ -43,7 +43,7 @@ export function generatorStringCell(index, value, rowIndex) {
 }
 
 export function generatorDatetimeCell(index, value, rowIndex) {
-  return `<c r="${generatorCellNumber(index, rowIndex)}" s="0" t="d"><v>${value}</v></c>`;
+  return `<c r="${generatorCellNumber(index, rowIndex)}" s="0"><v>${value}</v></c>`;
 }
 
 export function formatCell(cell, index, rowIndex) {
