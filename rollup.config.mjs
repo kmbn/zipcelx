@@ -3,7 +3,7 @@ import builtins from 'rollup-plugin-node-builtins';
 import globals from 'rollup-plugin-node-globals';
 import resolve from 'rollup-plugin-node-resolve';
 import uglify from 'rollup-plugin-uglify';
-import pkg from './package.json';
+import pkg from './package.json' assert {type: 'json'};
 
 export default [
   // browser-friendly UMD build
