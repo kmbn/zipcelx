@@ -12,6 +12,9 @@ export default {
       }, {
         value: 1000,
         type: 'number'
+      }, {
+        value: '2024-11-01T13:30',
+        type: 'datetime'
       }]
     ]
   }

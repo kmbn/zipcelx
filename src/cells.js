@@ -2,7 +2,9 @@ const CELL_TYPE_STRING = 'string';
 
 const CELL_TYPE_NUMBER = 'number';
 
-const validTypes = [CELL_TYPE_STRING, CELL_TYPE_NUMBER];
+const CELL_TYPE_DATETIME = 'datetime';
+
+const validTypes = [CELL_TYPE_STRING, CELL_TYPE_NUMBER, CELL_TYPE_DATETIME];
 
 export const WARNING_INVALID_TYPE = 'Invalid type supplied in cell config, falling back to "string"';
 
@@ -42,15 +44,26 @@ export function generatorStringCell(index, value, rowIndex) {
   return `<c r="${generatorCellNumber(index, rowIndex)}" t="inlineStr"><is><t>${escape(value)}</t></is></c>`;
 }
 
+export function generatorDatetimeCell(index, value, rowIndex) {
+  return `<c r="${generatorCellNumber(index, rowIndex)}" s="0" t="d"><v>${value}</v></c>`;
+}
+
 export function formatCell(cell, index, rowIndex) {
   if (validTypes.indexOf(cell.type) === -1) {
     console.warn(WARNING_INVALID_TYPE);
     cell.type = CELL_TYPE_STRING;
   }
 
-  return (
-    cell.type === CELL_TYPE_STRING
-      ? generatorStringCell(index, cell.value, rowIndex)
-      : generatorNumberCell(index, cell.value, rowIndex)
-  );
+  let formatter;
+  if (cell.type === CELL_TYPE_STRING) {
+    formatter = generatorStringCell;
+  } else if (cell.type === CELL_TYPE_NUMBER) {
+    formatter = generatorNumberCell;
+  } else if (cell.type === CELL_TYPE_DATETIME) {
+    formatter = generatorDatetimeCell;
+  } else {
+    formatter = generatorStringCell;
+  }
+
+  return formatter(index, cell.value, rowIndex);
 }

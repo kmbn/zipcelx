@@ -5,7 +5,7 @@ import baseConfig from './baseConfig';
 console.error = jest.fn();
 
 describe('Zipcelx', () => {
-  const rowsXML = `<row r="1"><c r="A1" t="inlineStr"><is><t>Test</t></is></c><c r="B1"><v>1000</v></c></row>`;
+  const rowsXML = '<row r="1"><c r="A1" t="inlineStr"><is><t>Test</t></is></c><c r="B1"><v>1000</v></c><c r="C1" s="0" t="d"><v>2024-11-01T13:30</v></c></row>';
 
   it('Should throw error if validator fails', () => {
     let config = Object.assign({}, baseConfig, { sheet: { data: [{test: 'demo'}] } });

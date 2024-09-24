@@ -28,4 +28,11 @@ describe('Format Cell', () => {
       expect(formatCell(cells[1], 1, 1)).toBe(expectedXML);
     });
   });
+
+  describe('Create a cell of type datetime', () => {
+    const expectedXML = '<c r="C1" s="0" t="d"><v>2024-11-01T13:30</v></c>';
+    it('Create cell', () => {
+      expect(formatCell(cells[2], 2, 1)).toBe(expectedXML);
+    });
+  });  
 });
