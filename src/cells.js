@@ -1,5 +1,3 @@
-import escape from 'lodash.escape';
-
 const CELL_TYPE_STRING = 'string';
 
 const CELL_TYPE_NUMBER = 'number';
@@ -7,6 +5,17 @@ const CELL_TYPE_NUMBER = 'number';
 const validTypes = [CELL_TYPE_STRING, CELL_TYPE_NUMBER];
 
 export const WARNING_INVALID_TYPE = 'Invalid type supplied in cell config, falling back to "string"';
+
+function escape(str) {
+  const escapeChars = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  };
+  return str.replace(/[&<>"']/g, (m) => escapeChars[m]);
+}
 
 function generateColumnLetter(colIndex) {
   if (typeof colIndex !== 'number') {
