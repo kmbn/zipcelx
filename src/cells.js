@@ -4,8 +4,6 @@ const CELL_TYPE_NUMBER = 'number';
 
 const CELL_TYPE_DATETIME = 'datetime';
 
-const validTypes = [CELL_TYPE_STRING, CELL_TYPE_NUMBER, CELL_TYPE_DATETIME];
-
 export const WARNING_INVALID_TYPE = 'Invalid type supplied in cell config, falling back to "string"';
 
 function escape(str) {
@@ -49,21 +47,20 @@ export function generatorDatetimeCell(index, value, rowIndex) {
 }
 
 export function formatCell(cell, index, rowIndex) {
-  if (validTypes.indexOf(cell.type) === -1) {
-    console.warn(WARNING_INVALID_TYPE);
-    cell.type = CELL_TYPE_STRING;
-  }
-
   let formatter;
-  if (cell.type === CELL_TYPE_STRING) {
-    formatter = generatorStringCell;
-  } else if (cell.type === CELL_TYPE_NUMBER) {
-    formatter = generatorNumberCell;
-  } else if (cell.type === CELL_TYPE_DATETIME) {
-    formatter = generatorDatetimeCell;
-  } else {
-    formatter = generatorStringCell;
+  switch (cell.type) {
+    case CELL_TYPE_STRING:
+      formatter = generatorStringCell;
+      break;
+    case CELL_TYPE_NUMBER:
+      formatter = generatorNumberCell;
+      break;
+    case CELL_TYPE_DATETIME:
+      formatter = generatorDatetimeCell;
+      break;
+    default:
+      console.warn(WARNING_INVALID_TYPE);
+      formatter = generatorStringCell;
   }
-
   return formatter(index, cell.value, rowIndex);
 }
