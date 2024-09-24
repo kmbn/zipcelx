@@ -8,7 +8,7 @@ const validTypes = [CELL_TYPE_STRING, CELL_TYPE_NUMBER];
 
 export const WARNING_INVALID_TYPE = 'Invalid type supplied in cell config, falling back to "string"';
 
-const generateColumnLetter = (colIndex) => {
+function generateColumnLetter(colIndex) {
   if (typeof colIndex !== 'number') {
     return '';
   }
@@ -19,17 +19,21 @@ const generateColumnLetter = (colIndex) => {
     return letter;
   }
   return generateColumnLetter(prefix - 1) + letter;
-};
+}
 
-export const generatorCellNumber = (index, rowNumber) => (
-  `${generateColumnLetter(index)}${rowNumber}`
-);
+export function generatorCellNumber(index, rowNumber) {
+  return `${generateColumnLetter(index)}${rowNumber}`;
+}
 
-export const generatorNumberCell = (index, value, rowIndex) => (`<c r="${generatorCellNumber(index, rowIndex)}"><v>${value}</v></c>`);
+export function generatorNumberCell(index, value, rowIndex) {
+  return `<c r="${generatorCellNumber(index, rowIndex)}"><v>${value}</v></c>`;
+}
 
-export const generatorStringCell = (index, value, rowIndex) => (`<c r="${generatorCellNumber(index, rowIndex)}" t="inlineStr"><is><t>${escape(value)}</t></is></c>`);
+export function generatorStringCell(index, value, rowIndex) {
+  return `<c r="${generatorCellNumber(index, rowIndex)}" t="inlineStr"><is><t>${escape(value)}</t></is></c>`;
+}
 
-export const formatCell = (cell, index, rowIndex) => {
+export function formatCell(cell, index, rowIndex) {
   if (validTypes.indexOf(cell.type) === -1) {
     console.warn(WARNING_INVALID_TYPE);
     cell.type = CELL_TYPE_STRING;
@@ -40,4 +44,4 @@ export const formatCell = (cell, index, rowIndex) => {
       ? generatorStringCell(index, cell.value, rowIndex)
       : generatorNumberCell(index, cell.value, rowIndex)
   );
-};
+}

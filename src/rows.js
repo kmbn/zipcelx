@@ -1,6 +1,6 @@
 import { formatCell } from './cells';
 
-export const formatRow = (row, index) => {
+export function formatRow(row, index) {
   // To ensure the row number starts as in excel.
   const rowIndex = index + 1;
   const rowCells = row
@@ -8,10 +8,10 @@ export const formatRow = (row, index) => {
     .join('');
 
   return `<row r="${rowIndex}">${rowCells}</row>`;
-};
+}
 
-export const generatorRows = (rows) => (
-  rows
+export function generatorRows(rows) {
+  return rows
     .map((row, index) => formatRow(row, index))
-    .join('')
-);
+    .join('');
+}

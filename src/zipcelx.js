@@ -10,10 +10,10 @@ import rels from './statics/rels';
 import contentTypes from './statics/[Content_Types].xml';
 import templateSheet from './templates/worksheet.xml';
 
-export const generateXMLWorksheet = (rows) => {
+export function generateXMLWorksheet(rows) {
   const XMLRows = generatorRows(rows);
   return templateSheet.replace('{placeholder}', XMLRows);
-};
+}
 
 export default (config) => {
   if (!validator(config)) {

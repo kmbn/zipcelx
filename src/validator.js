@@ -6,9 +6,9 @@ export const INVALID_TYPE_SHEET = 'Zipcelx sheet data is not of type array';
 
 export const INVALID_TYPE_SHEET_DATA = 'Zipclex sheet data childs is not of type array';
 
-const childValidator = (array) => {
+function childValidator(array) {
   return array.every((item) => Array.isArray(item));
-};
+}
 
 export default (config) => {
   if (!config.filename) {
